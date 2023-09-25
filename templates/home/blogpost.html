@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block style %}
+.cont {
+    margin: 0px 40px;
+}
+
+.title {
+    text-align: center;
+}
+
+.container {
+    display: grid;
+    gap: 10px;
+    margin-top: 1%;
+}
+
+.blg {
+    grid-column-start: 1;
+    grid-row-start: 1;
+}
+
+.slidebr {
+    width: 420px;
+    grid-column-start: 2;
+    grid-row-start: 1;
+}
+
+
+.postcon {
+    box-shadow: 0px 3px 11px 0px;
+    border-radius: 8px;
+    padding: 8px 23px;
+}
+
+.imgsss {
+    height: 400px;
+    display: flex;
+    justify-content: center;
+}
+
+.sldb {
+    box-shadow: -1px 1px 8px 4px;
+    padding: 11px 13px;
+    margin-bottom:5%,
+}{% endblock style %}
+{% block body %}
+
+<div class="boy">
+
+    <div class="containne">
+        <div class="container">
+            <div class="blg">
+                <div class="bodyblg">
+                    <div class="cont">
+                        <div class="postcon">
+                            <div class="posconnt">
+                                <div class="title">
+                                    <h2>{{posts.Title}}</h2>
+                                </div>
+                                <div class="imgsss">
+                                    <img src="{{posts.images}}" alt="a boy">
+                                </div>
+                                <div class="content">
+                                    <p>{{posts.contents}}</p>
+                                        
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comm">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slidebr">
+                {% for allposts in allpost %}
+                <div class="sldb">
+                    <p>{{allposts.contents|truncatechars:100}}...</p>
+                        <a href="{{allposts.slug}}">Continue</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock body %}
